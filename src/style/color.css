@@ -1,0 +1,21 @@
+:root {
+  /* Primary Colors */
+  --purple: #5f0080; /* 컬리 대표 컬러 */
+  --purple-light: #a566c7; /* 밝은 보라 */
+
+  /* Neutral Colors */
+  --white: #ffffff;
+  --black: #000000;
+  --gray-100: #f9f9f9;
+  --gray-200: #e0e0e0;
+  --gray-300: #c4c4c4;
+  --gray-400: #a1a1a1;
+  --gray-500: #5a5a5a;
+
+  /* Accent Colors */
+  --red: #ad0723; /* 경고나 알림에 사용 */
+  --green: #27ae60; /* 성공 메시지용 */
+
+  /* Background */
+  --background: #f7f7f7;
+}
