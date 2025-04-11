@@ -9,6 +9,8 @@ export default defineConfig({
       '@': path.resolve(__dirname, 'src'),
       '@page': path.resolve(__dirname, 'src/page'),
       '@component': path.resolve(__dirname, 'src/component'),
+      '@layout': path.resolve(__dirname, 'src/component/layout'),
+      '@shared': path.resolve(__dirname, 'src/component/shared'),
       '@hook': path.resolve(__dirname, 'src/hook'),
       '@lib': path.resolve(__dirname, 'src/lib'),
       '@assets': path.resolve(__dirname, 'src/assets'),

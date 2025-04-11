@@ -1,12 +1,21 @@
-import { BrowserRouter, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Layout from '../component/layout/Layout'
+import { routes } from './routes'
 
 export default function Router() {
   return (
     <BrowserRouter>
-      <Routes>
-        {/* <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} /> */}
-      </Routes>
+      <Layout>
+        <Routes>
+          {routes.map(({ path, element }) => (
+            <Route
+              key={path}
+              path={path}
+              element={element}
+            />
+          ))}
+        </Routes>
+      </Layout>
     </BrowserRouter>
   )
 }

@@ -1,0 +1,29 @@
+.header {
+  background-color: var(--white);
+  padding: 16px;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.authList {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.authList li {
+  color: var(--black);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.authList li:hover {
+  color: var(--purple);
+}

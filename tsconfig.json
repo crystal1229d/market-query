@@ -10,6 +10,8 @@
       "@/*": ["src/*"],
       "@page/*": ["src/page/*"],
       "@component/*": ["src/component/*"],
+      "@layout/*": ["src/component/layout/*"],
+      "@shared/*": ["src/component/shared/*"],
       "@hook/*": ["src/hook/*"],
       "@lib/*": ["src/lib/*"],
       "@assets/*": ["src/assets/*"],
