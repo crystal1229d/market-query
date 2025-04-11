@@ -11,11 +11,12 @@
   --gray-300: #c4c4c4;
   --gray-400: #a1a1a1;
   --gray-500: #5a5a5a;
+  --gray-600: #3f3f3f;
 
   /* Accent Colors */
   --red: #ad0723; /* 경고나 알림에 사용 */
   --green: #27ae60; /* 성공 메시지용 */
 
   /* Background */
-  --background: #f7f7f7;
+  --background: #ffffff;
 }
