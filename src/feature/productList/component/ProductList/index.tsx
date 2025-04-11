@@ -2,8 +2,8 @@ import { useEffect, useRef } from 'react'
 import { useProductsQuery } from '../../api'
 
 import ProductItem from '../ProductItem'
-import ProductSkeleton from '../ProductSkeleton'
 import Spinner from '@shared/Spinner'
+import ProductSkeletonList from '../ProductSkeletonList'
 import styles from './ProductList.module.css'
 
 export const ProductList = () => {
@@ -25,14 +25,12 @@ export const ProductList = () => {
     const observer = new IntersectionObserver(
       entries => {
         if (entries[0].isIntersecting) {
-          console.log('🔥 Intersection detected')
           if (hasNextPage && !isFetchingNextPage) {
-            console.log('🧃 Fetching next page')
             fetchNextPage()
           }
         }
       },
-      { threshold: 1.0, rootMargin: '25px' }
+      { threshold: 1.0, rootMargin: '30px' }
     )
 
     const current = observerRef.current
@@ -43,15 +41,7 @@ export const ProductList = () => {
     }
   }, [hasNextPage, isLoading, isFetchingNextPage, fetchNextPage])
 
-  if (isLoading)
-    return (
-      <div className={styles.grid}>
-        {Array.from({ length: 12 }).map((_, idx) => (
-          <ProductSkeleton key={idx} />
-        ))}
-      </div>
-    )
-
+  if (isLoading) return <ProductSkeletonList count={12} />
   if (isError) return <p>Error loading products</p>
 
   return (
@@ -66,10 +56,7 @@ export const ProductList = () => {
           ))
         )}
       </div>
-      {isFetchingNextPage &&
-        Array.from({ length: 4 }).map((_, idx) => (
-          <ProductSkeleton key={idx} />
-        ))}
+      {isFetchingNextPage && <ProductSkeletonList count={4} />}
       <div ref={observerRef} />
       {isFetchingNextPage && <Spinner />}
     </>

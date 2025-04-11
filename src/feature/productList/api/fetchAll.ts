@@ -9,11 +9,13 @@ interface GetAllProductsResponse {
   limit: number
 }
 
+const limit = 12
+const initialPage = 0
+const staleTime = 1000 * 60 * 2
+
 const fetchProducts = async ({
-  pageParam = 0
+  pageParam = initialPage
 }): Promise<GetAllProductsResponse> => {
-  console.log('📦 fetchProducts called with pageParam:', pageParam)
-  const limit = 12
   const response = await axios.get(
     `${import.meta.env.VITE_DUMMYJSON_BASE_URL}/products?limit=${limit}&skip=${pageParam}`
   )
@@ -24,12 +26,12 @@ export const useProductsQuery = () => {
   return useInfiniteQuery({
     queryKey: ['products'],
     queryFn: fetchProducts,
-    initialPageParam: 0,
+    initialPageParam: initialPage,
     getNextPageParam: lastPage => {
       const nextSkip = lastPage.skip + lastPage.limit
       return nextSkip < lastPage.total ? nextSkip : undefined
     },
-    staleTime: 1000 * 60 * 5, // 5 minutes
+    staleTime,
     refetchOnWindowFocus: false,
     refetchOnMount: false,
     refetchOnReconnect: false
