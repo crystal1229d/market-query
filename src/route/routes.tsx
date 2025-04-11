@@ -29,5 +29,6 @@ export const routes = [
 
 export const appRoutes = [
   ...routes,
-  { path: '/product/:id', element: <ProductDetailPage /> }
+  { path: '/product/:id', element: <ProductDetailPage /> },
+  { path: '/product/new', element: <CreateProductPage /> }
 ]
