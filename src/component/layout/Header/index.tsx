@@ -1,7 +1,7 @@
-import Logo from '../../shared/Logo'
+import Logo from '@shared/Logo'
 import Search from './Search'
 import UtilityIcons from './UtilityIcons'
-import Nav from '../Nav'
+import Nav from '@layout/Nav'
 import styles from './Header.module.css'
 
 export default function Header() {

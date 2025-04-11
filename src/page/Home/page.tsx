@@ -1,4 +1,4 @@
-import { ProductList } from '../../feature/productList/component/ProductList'
+import { ProductList } from '@/feature/productList/component/ProductList'
 import styles from './page.module.css'
 
 export default function HomePage() {

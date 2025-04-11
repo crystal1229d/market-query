@@ -2,8 +2,8 @@ import { useEffect, useRef } from 'react'
 import { useProductsQuery } from '../../api'
 
 import ProductItem from '../ProductItem'
-import Spinner from '../../../../component/shared/Spinner'
 import ProductSkeleton from '../ProductSkeleton'
+import Spinner from '@shared/Spinner'
 import styles from './ProductList.module.css'
 
 export const ProductList = () => {
@@ -19,15 +19,20 @@ export const ProductList = () => {
   const observerRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
-    if (!observerRef.current) return
+    if (!observerRef.current || !hasNextPage || isLoading || isFetchingNextPage)
+      return
 
     const observer = new IntersectionObserver(
       entries => {
-        if (entries[0].isIntersecting && hasNextPage && !isFetchingNextPage) {
-          fetchNextPage()
+        if (entries[0].isIntersecting) {
+          console.log('🔥 Intersection detected')
+          if (hasNextPage && !isFetchingNextPage) {
+            console.log('🧃 Fetching next page')
+            fetchNextPage()
+          }
         }
       },
-      { threshold: 1.0 }
+      { threshold: 1.0, rootMargin: '25px' }
     )
 
     const current = observerRef.current
@@ -36,16 +41,17 @@ export const ProductList = () => {
     return () => {
       if (current) observer.unobserve(current)
     }
-  }, [fetchNextPage, hasNextPage, isFetchingNextPage])
+  }, [hasNextPage, isLoading, isFetchingNextPage, fetchNextPage])
 
   if (isLoading)
     return (
       <div className={styles.grid}>
-        {Array.from({ length: 8 }).map((_, idx) => (
+        {Array.from({ length: 12 }).map((_, idx) => (
           <ProductSkeleton key={idx} />
         ))}
       </div>
     )
+
   if (isError) return <p>Error loading products</p>
 
   return (
@@ -64,10 +70,7 @@ export const ProductList = () => {
         Array.from({ length: 4 }).map((_, idx) => (
           <ProductSkeleton key={idx} />
         ))}
-      <div
-        ref={observerRef}
-        style={{ height: '3px' }}
-      />
+      <div ref={observerRef} />
       {isFetchingNextPage && <Spinner />}
     </>
   )
