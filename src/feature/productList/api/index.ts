@@ -1,1 +1,1 @@
-export * from './fetchAll'
+export * from './products'

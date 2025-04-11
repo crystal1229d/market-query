@@ -1,9 +1,9 @@
-import { useProductsQuery } from '../../api'
+import { useProductsQuery } from '../../hook/useProductsQuery'
+import { useInfiniteScroll } from '@/hook/useInfiniteScroll'
 import ProductItem from '../ProductItem'
 import Spinner from '@shared/Spinner'
 import ProductSkeletonList from '../ProductSkeletonList'
 import styles from './ProductList.module.css'
-import { useInfiniteScroll } from '@/hook/useInfiniteScroll'
 
 export const ProductList = () => {
   const {

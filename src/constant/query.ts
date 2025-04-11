@@ -1,0 +1,5 @@
+export const QUERY_CONFIG = {
+  STALE_TIME: 1000 * 60 * 2,
+  PRODUCTS_LIMIT: 12,
+  INITIAL_PAGE: 0
+}
