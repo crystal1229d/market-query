@@ -2,6 +2,7 @@ import HomePage from '../page/Home/page'
 import NewProductPage from '../page/NewProduct/page'
 import BestProductPage from '../page/BestProduct/page'
 import CreateProductPage from '../page/CreateProduct/page'
+import ProductDetailPage from '@/page/ProductDetail/page'
 
 export const routes = [
   {
@@ -24,4 +25,9 @@ export const routes = [
     label: '상품 등록',
     element: <CreateProductPage />
   }
+]
+
+export const appRoutes = [
+  ...routes,
+  { path: '/product/:id', element: <ProductDetailPage /> }
 ]

@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { Product } from '../type'
+import { Product } from '@/entity/product/types'
 
 export const fetchProductById = async (id: number): Promise<Product> => {
   const response = await axios.get(

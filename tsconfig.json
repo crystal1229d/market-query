@@ -13,6 +13,7 @@
       "@layout/*": ["src/component/layout/*"],
       "@shared/*": ["src/component/shared/*"],
       "@feature/*": ["src/feature/*"],
+      "@entity/*": ["src/entity/*"],
       "@api/*": ["src/api/*"],
       "@hook/*": ["src/hook/*"],
       "@lib/*": ["src/lib/*"],

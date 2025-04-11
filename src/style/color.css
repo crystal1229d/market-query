@@ -1,7 +1,8 @@
 :root {
   /* Primary Colors */
-  --purple: #5f0080; /* 컬리 대표 컬러 */
-  --purple-light: #a566c7; /* 밝은 보라 */
+  --purple: #5f0080;
+  --purple-light: #a566c7;
+  --orange: #fa622f;
 
   /* Neutral Colors */
   --white: #ffffff;

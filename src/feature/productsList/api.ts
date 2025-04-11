@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { GetAllProductsResponse } from '../type'
+import { GetAllProductsResponse } from './type'
 import { QUERY_CONFIG } from '@/constant'
 
 export const fetchProducts = async ({

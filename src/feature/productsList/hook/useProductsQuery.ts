@@ -1,5 +1,5 @@
 import { useInfiniteQuery } from '@tanstack/react-query'
-import { fetchProducts } from '../api/products'
+import { fetchProducts } from '../api'
 import { QUERY_CONFIG } from '@/constant'
 
 export const useProductsQuery = () => {
