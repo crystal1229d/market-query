@@ -1,7 +1,7 @@
-import { Product } from '@/entity/product/types'
 import { Link } from 'react-router-dom'
-import styles from './ProductItem.module.css'
+import { Product } from '@/entity/product/type'
 import { FaShoppingCart, FaStar, FaCommentDots } from 'react-icons/fa'
+import styles from './ProductItem.module.css'
 
 interface Props {
   product: Product
