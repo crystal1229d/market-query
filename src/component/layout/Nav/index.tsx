@@ -1,5 +1,5 @@
 import { useLocation } from 'react-router-dom'
-import { routes } from '../../../route/routes'
+import { routes } from '@route/routes'
 import styles from './Nav.module.css'
 import { Link } from 'react-router-dom'
 import clsx from 'clsx'

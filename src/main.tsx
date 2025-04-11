@@ -4,6 +4,8 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 import '@style/reset.css'
 import '@style/color.css'
+import '@style/zindex.css'
+
 import './index.css'
 import App from './App.tsx'
 
