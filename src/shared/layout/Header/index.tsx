@@ -1,5 +1,5 @@
 import Logo from '@ui/Logo'
-import Search from './Search'
+import SearchBar from '@/feature/product-list/ui/SearchBar'
 import UtilityIcons from './UtilityIcons'
 import Nav from '@layout/Nav'
 import styles from './Header.module.css'
@@ -18,7 +18,7 @@ export default function Header() {
 
         <div className={styles.midBar}>
           <Logo />
-          <Search />
+          <SearchBar />
           <UtilityIcons />
         </div>
 

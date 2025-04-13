@@ -7,9 +7,10 @@ import styles from './ProductList.module.css'
 
 interface Props {
   sortBy?: 'discountPercentage' | 'rating'
+  keyword?: string
 }
 
-export const ProductList = ({ sortBy }: Props) => {
+export const ProductList = ({ sortBy, keyword }: Props) => {
   const {
     data,
     isLoading,
@@ -17,7 +18,7 @@ export const ProductList = ({ sortBy }: Props) => {
     fetchNextPage,
     hasNextPage,
     isFetchingNextPage
-  } = useProductsQuery(sortBy)
+  } = useProductsQuery({ sortBy, keyword })
 
   const { observerRef } = useInfiniteScroll({
     hasNextPage,

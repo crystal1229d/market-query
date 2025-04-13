@@ -5,19 +5,27 @@ import { GetAllProductsResponse } from '@product/type'
 interface Props {
   sortBy?: 'discountPercentage' | 'rating'
   pageParam?: number
+  keyword?: string
 }
 
 export const fetchProducts = async ({
   sortBy,
-  pageParam = QUERY_CONFIG.INITIAL_PAGE
+  pageParam = QUERY_CONFIG.INITIAL_PAGE,
+  keyword
 }: Props): Promise<GetAllProductsResponse> => {
+  const baseURL = `${import.meta.env.VITE_DUMMYJSON_BASE_URL}/products`
   const limit = QUERY_CONFIG.PRODUCTS_LIMIT
-  const skip = pageParam
-  const order = 'desc'
 
-  const response = await axios.get(
-    `${import.meta.env.VITE_DUMMYJSON_BASE_URL}/products?limit=${limit}&skip=${skip}&sortBy=${sortBy ?? 'default'}&order=${order}`
-  )
+  let query = `?limit=${limit}&skip=${pageParam}`
 
+  if (sortBy) {
+    query += `&sort=${sortBy}&order=desc`
+  }
+
+  if (keyword) {
+    query += `&q=${encodeURIComponent(keyword)}`
+  }
+
+  const response = await axios.get(`${baseURL}${query}`)
   return response.data
 }

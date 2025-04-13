@@ -2,10 +2,15 @@ import { useInfiniteQuery } from '@tanstack/react-query'
 import { fetchProducts } from '../api'
 import { QUERY_CONFIG } from '@/shared/config'
 
-export const useProductsQuery = (sortBy?: 'discountPercentage' | 'rating') => {
+interface Props {
+  sortBy?: 'discountPercentage' | 'rating'
+  keyword?: string
+}
+
+export const useProductsQuery = ({ sortBy, keyword }: Props) => {
   return useInfiniteQuery({
-    queryKey: ['products', sortBy],
-    queryFn: ({ pageParam }) => fetchProducts({ pageParam, sortBy }),
+    queryKey: ['products', sortBy, keyword],
+    queryFn: ({ pageParam }) => fetchProducts({ pageParam, sortBy, keyword }),
     initialPageParam: QUERY_CONFIG.INITIAL_PAGE,
     getNextPageParam: lastPage => {
       const nextSkip = lastPage.skip + lastPage.limit

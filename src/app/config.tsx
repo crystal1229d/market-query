@@ -3,6 +3,7 @@ import DiscountProductPage from '@/app/route/product/discount'
 import BestProductPage from '@/app/route/product/best'
 import CreateProductPage from '@/app/route/product/create'
 import ProductDetailPage from '@/app/route/product/detail'
+import SearchResultPage from '@/app/route/product/search'
 
 export const navRoutes = [
   {
@@ -30,5 +31,7 @@ export const navRoutes = [
 export const appRoutes = [
   ...navRoutes,
   { path: '/product/:id', element: <ProductDetailPage /> },
-  { path: '/product/new', element: <CreateProductPage /> }
+  { path: '/product/new', element: <CreateProductPage /> },
+  { path: '/search', element: <SearchResultPage /> }
+  // { path: '*', element: <NotFoundPage /> } // 404
 ]
