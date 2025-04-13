@@ -8,20 +8,30 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
-      "@page/*": ["src/page/*"],
-      "@component/*": ["src/component/*"],
-      "@layout/*": ["src/component/layout/*"],
-      "@shared/*": ["src/component/shared/*"],
-      "@feature/*": ["src/feature/*"],
+
+      /* app (라우팅, 페이지) */
+      "@app/*": ["src/app/*"],
+      "@route/*": ["src/app/route/*"],
+
+      /* entity */
       "@entity/*": ["src/entity/*"],
-      "@api/*": ["src/api/*"],
-      "@hook/*": ["src/hook/*"],
-      "@lib/*": ["src/lib/*"],
-      "@assets/*": ["src/assets/*"],
-      "@route/*": ["src/route/*"],
-      "@style/*": ["src/style/*"],
-      "@type/*": ["src/type/*"],
-      "@constant/*": ["src/constant/*"]
+      "@product/*": ["src/entity/product/*"],
+      "@cart/*": ["src/entity/cart/*"],
+
+      /* feature */
+      "@feature/*": ["src/feature/*"],
+
+      /* shared (공통) */
+      "@shared/*": ["src/shared/*"],
+      "@layout/*": ["src/shared/layout/*"],
+      "@ui/*": ["src/shared/ui/*"],
+      "@api/*": ["src/shared/api/*"],
+      "@hook/*": ["src/shared/hook/*"],
+      "@lib/*": ["src/shared/lib/*"],
+      "@type/*": ["src/shared/type/*"],
+      "@config/*": ["src/shared/config/*"],
+      "@asset/*": ["src/shared/asset/*"],
+      "@style/*": ["src/shared/style/*"]
     }
   }
 }
