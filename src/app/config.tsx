@@ -1,5 +1,5 @@
 import ProductListPage from '@/app/route/product/list'
-import NewProductPage from '@/app/route/product/new'
+import DiscountProductPage from '@/app/route/product/discount'
 import BestProductPage from '@/app/route/product/best'
 import CreateProductPage from '@/app/route/product/create'
 import ProductDetailPage from '@/app/route/product/detail'
@@ -11,9 +11,9 @@ export const navRoutes = [
     element: <ProductListPage />
   },
   {
-    path: '/new',
-    label: '신상품',
-    element: <NewProductPage />
+    path: '/discount',
+    label: '특가상품',
+    element: <DiscountProductPage />
   },
   {
     path: '/best',

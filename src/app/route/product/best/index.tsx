@@ -1,7 +1,17 @@
+import { ProductList } from '@/feature/product-list/ui/ProductList'
+import Banner from '@layout/Banner'
+import styles from './page.module.css'
+
 export default function BestProductPage() {
   return (
     <div>
-      <h1>베스트 상품 페이지</h1>
+      <>
+        <Banner />
+        <main className={styles.container}>
+          <h3 className={styles.title}>💫 지금 가장 많이 담는 상품</h3>
+          <ProductList sortBy="rating" />
+        </main>
+      </>
     </div>
   )
 }

@@ -5,7 +5,11 @@ import Spinner from '@ui/Spinner'
 import ProductSkeletonList from '@product/ui/ProductSkeletonList'
 import styles from './ProductList.module.css'
 
-export const ProductList = () => {
+interface Props {
+  sortBy?: 'discountPercentage' | 'rating'
+}
+
+export const ProductList = ({ sortBy }: Props) => {
   const {
     data,
     isLoading,
@@ -13,7 +17,7 @@ export const ProductList = () => {
     fetchNextPage,
     hasNextPage,
     isFetchingNextPage
-  } = useProductsQuery()
+  } = useProductsQuery(sortBy)
 
   const { observerRef } = useInfiniteScroll({
     hasNextPage,
