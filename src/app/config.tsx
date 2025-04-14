@@ -4,6 +4,8 @@ import BestProductPage from '@/app/route/product/best'
 import CreateProductPage from '@/app/route/product/create'
 import ProductDetailPage from '@/app/route/product/detail'
 import SearchResultPage from '@/app/route/product/search'
+import SignupPage from '@/app/route/auth/signup'
+import SigninPage from '@/app/route/auth/signin'
 
 export const navRoutes = [
   {
@@ -32,6 +34,8 @@ export const appRoutes = [
   ...navRoutes,
   { path: '/product/:id', element: <ProductDetailPage /> },
   { path: '/product/new', element: <CreateProductPage /> },
-  { path: '/search', element: <SearchResultPage /> }
+  { path: '/search', element: <SearchResultPage /> },
+  { path: '/signup', element: <SignupPage /> },
+  { path: '/signin', element: <SigninPage /> }
   // { path: '*', element: <NotFoundPage /> } // 404
 ]

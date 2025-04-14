@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import Logo from '@ui/Logo'
 import SearchBar from '@/feature/product-list/ui/SearchBar'
 import UtilityIcons from './UtilityIcons'
@@ -10,8 +11,12 @@ export default function Header() {
       <div className={styles.inner}>
         <div className={styles.topBar}>
           <ul className={styles.authList}>
-            <li>로그인</li>
-            <li>회원가입</li>
+            <li>
+              <Link to="/signup">회원가입</Link>
+            </li>
+            <li>
+              <Link to="/signin">로그인</Link>
+            </li>
             <li>고객센터</li>
           </ul>
         </div>
