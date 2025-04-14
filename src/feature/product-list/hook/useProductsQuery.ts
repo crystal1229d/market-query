@@ -7,9 +7,9 @@ interface Props {
   keyword?: string
 }
 
-export const useProductsQuery = ({ sortBy, keyword }: Props) => {
+export const useProductsQuery = ({ sortBy, keyword = '' }: Props) => {
   return useInfiniteQuery({
-    queryKey: ['products', sortBy, keyword],
+    queryKey: ['products', { sortBy, keyword }],
     queryFn: ({ pageParam }) => fetchProducts({ pageParam, sortBy, keyword }),
     initialPageParam: QUERY_CONFIG.INITIAL_PAGE,
     getNextPageParam: lastPage => {

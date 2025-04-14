@@ -1,7 +1,7 @@
+import { useNavigate } from 'react-router-dom'
 import { useSearchStore } from '../../model/searchStore'
 import { HiMagnifyingGlass } from 'react-icons/hi2'
 import styles from './SearchBar.module.css'
-import { useNavigate } from 'react-router-dom'
 
 export default function SearchBar() {
   const { keyword, setKeyword } = useSearchStore()

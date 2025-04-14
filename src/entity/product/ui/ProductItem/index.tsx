@@ -42,10 +42,10 @@ export default function ProductItem({ product }: Props) {
 
         <div className={styles.priceBox}>
           <span className={styles.originalPrice}>
-            {originalPrice.toLocaleString()}원
+            ${originalPrice.toLocaleString()}
           </span>
           <span className={styles.discount}>{discountPercentage}%</span>
-          <span className={styles.price}>{price.toLocaleString()}원</span>
+          <span className={styles.price}>${price.toLocaleString()}</span>
         </div>
 
         <div className={styles.meta}>

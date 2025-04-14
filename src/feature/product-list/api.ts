@@ -16,16 +16,23 @@ export const fetchProducts = async ({
   const baseURL = `${import.meta.env.VITE_DUMMYJSON_BASE_URL}/products`
   const limit = QUERY_CONFIG.PRODUCTS_LIMIT
 
-  let query = `?limit=${limit}&skip=${pageParam}`
+  const params = new URLSearchParams()
+  params.set('limit', limit.toString())
+  params.set('skip', pageParam.toString())
 
   if (sortBy) {
-    query += `&sort=${sortBy}&order=desc`
+    params.set('sortBy', sortBy)
+    params.set('order', 'desc')
   }
+
+  let endpoint = baseURL
 
   if (keyword) {
-    query += `&q=${encodeURIComponent(keyword)}`
+    endpoint += `/search?q=${encodeURIComponent(keyword)}&${params.toString()}`
+  } else {
+    endpoint += `?${params.toString()}`
   }
 
-  const response = await axios.get(`${baseURL}${query}`)
+  const response = await axios.get(endpoint)
   return response.data
 }
