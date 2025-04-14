@@ -1,13 +1,23 @@
-import { useLocation, Link } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import clsx from 'clsx'
 import { navRoutes } from '@/app/config'
+import { useSearchStore } from '@/feature/product-list/model/searchStore'
 import styles from './Nav.module.css'
 
 export default function Nav() {
   const { pathname } = useLocation()
+  const navigate = useNavigate()
+  const { resetKeyword } = useSearchStore()
+
+  const hasActive = navRoutes.some(route => route.path === pathname)
 
   const isActive = (path: string) => {
-    return pathname === path
+    return hasActive && pathname === path
+  }
+
+  const handleNavClick = (path: string) => {
+    resetKeyword()
+    navigate(path)
   }
 
   return (
@@ -17,7 +27,12 @@ export default function Nav() {
           <li
             key={path}
             className={clsx(styles.navItem, isActive(path) && styles.active)}>
-            <Link to={path}>{label}</Link>
+            <button
+              type="button"
+              onClick={() => handleNavClick(path)}
+              className={styles.navLink}>
+              {label}
+            </button>
           </li>
         ))}
       </ul>
