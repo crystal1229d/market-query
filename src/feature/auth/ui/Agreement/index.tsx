@@ -1,4 +1,4 @@
-import Checkbox from '@/shared/ui/Checkbox'
+import Checkbox from '@ui/Checkbox'
 import styles from './Agreement.module.css'
 
 export default function Agreement() {
@@ -9,7 +9,10 @@ export default function Agreement() {
       </label>
 
       <div className={styles.agreementBox}>
-        <Checkbox label="전체 동의합니다." />
+        <Checkbox
+          label="전체 동의합니다."
+          labelClassName={styles.checkAll}
+        />
 
         <ul className={styles.agreementList}>
           <li>
@@ -24,7 +27,7 @@ export default function Agreement() {
             <Checkbox label="개인정보 수집·이용 동의 (선택)" />
             <a>약관보기</a>
           </li>
-          <li>
+          <li className={styles.marketing}>
             <Checkbox label="무료배송, 할인쿠폰 등 정보 수신 동의" />
             <div className={styles.inlineOptions}>
               <Checkbox label="SMS" />

@@ -7,29 +7,28 @@
 
 .checkbox {
   appearance: none;
-  width: 18px;
-  height: 18px;
-  border: 1.5px solid #ccc;
+  width: 1.4rem;
+  height: 1.4rem;
+  border: 1.5px solid var(--gray-200);
   border-radius: 50%;
-  background-color: #fff;
   cursor: pointer;
   position: relative;
   margin-right: 0.5rem;
 }
 .checkbox:checked {
-  background-color: #5f0080;
-  border-color: #5f0080;
+  background-color: var(--purple);
+  border-color: var(--purple);
 }
 .checkbox:checked::after {
   content: '✔';
-  color: white;
-  font-size: 12px;
+  color: var(--white);
+  font-size: 1rem;
   position: absolute;
-  top: 0;
-  left: 3px;
+  top: 0.5px;
+  left: 4px;
 }
 
 .label {
-  font-size: 14px;
-  color: #333;
+  font-size: 0.85rem;
+  color: var(--gray-600);
 }

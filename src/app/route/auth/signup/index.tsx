@@ -1,6 +1,6 @@
 import Agreement from '@/feature/auth/ui/Agreement'
-import styles from './page.module.css'
 import Button from '@/shared/ui/Button'
+import styles from './page.module.css'
 
 export default function SignupPage() {
   return (

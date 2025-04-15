@@ -1,15 +1,17 @@
 import { InputHTMLAttributes } from 'react'
-import styles from './Checkbox.module.css'
 import clsx from 'clsx'
+import styles from './Checkbox.module.css'
 
 interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string
-  className?: string
+  inputClassName?: string
+  labelClassName?: string
 }
 
 export default function Checkbox({
   label,
-  className,
+  inputClassName,
+  labelClassName,
   id,
   ...rest
 }: CheckboxProps) {
@@ -22,10 +24,12 @@ export default function Checkbox({
       <input
         type="checkbox"
         id={checkboxId}
-        className={clsx(styles.checkbox, className)}
+        className={clsx(styles.checkbox, inputClassName)}
         {...rest}
       />
-      {label && <span className={styles.label}>{label}</span>}
+      {label && (
+        <span className={clsx(styles.label, labelClassName)}>{label}</span>
+      )}
     </label>
   )
 }
