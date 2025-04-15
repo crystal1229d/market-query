@@ -32,6 +32,7 @@
       "@config/*": ["src/shared/config/*"],
       "@asset/*": ["src/shared/asset/*"],
       "@style/*": ["src/shared/style/*"]
-    }
+    },
+    "typeRoots": ["node_modules/@types"]
   }
 }

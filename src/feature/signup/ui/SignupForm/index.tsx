@@ -1,5 +1,6 @@
-import { useSignupForm } from '../../hook/useSignupForm'
+import { useSignupForm } from '../../../../entity/user/hook/useSignupForm'
 import { useSignupAgreementStore } from '../../model/useSignupAgreementStore'
+import { SignupFormInput } from '@/entity/user/type'
 import FormField from '../FormField'
 import Agreement from '../Agreement'
 import Button from '@ui/Button'
@@ -7,10 +8,11 @@ import Radio from '@ui/Radio'
 import styles from './SignupForm.module.css'
 
 export default function SignupForm() {
-  const { register, handleSubmit } = useSignupForm()
+  const { register, handleSubmit, errors } = useSignupForm()
   const { agreements, isRequiredChecked } = useSignupAgreementStore()
 
-  const onSubmit = (data: any) => {
+  const onSubmit = (data: SignupFormInput) => {
+    console.log('🎯 제출 성공!', data)
     const email = `${data.emailId}@${data.emailDomain}`
     const birth = `${data.birthYear}-${data.birthMonth}-${data.birthDay}`
     const payload = {
@@ -25,17 +27,23 @@ export default function SignupForm() {
     }
 
     console.log(payload)
+    // mutation
+  }
+
+  const onError = (errors: any) => {
+    console.log('🚨 제출 실패 - 유효성 검증 실패:', errors)
   }
 
   return (
     <form
       className={styles.form}
-      onSubmit={handleSubmit(onSubmit)}>
+      onSubmit={handleSubmit(onSubmit, onError)}>
       <FormField
         label="아이디"
         required
         placeholder="아이디를 입력해주세요"
         {...register('username')}
+        error={errors.username}
       />
 
       <FormField
@@ -44,6 +52,7 @@ export default function SignupForm() {
         placeholder="비밀번호를 입력해주세요"
         type="password"
         {...register('password')}
+        error={errors.password}
       />
 
       <FormField
@@ -52,6 +61,7 @@ export default function SignupForm() {
         placeholder="비밀번호를 한번 더 입력해주세요"
         type="password"
         {...register('confirmPassword')}
+        error={errors.confirmPassword}
       />
 
       <FormField
@@ -59,6 +69,7 @@ export default function SignupForm() {
         required
         placeholder="이름을 입력해 주세요"
         {...register('name')}
+        error={errors.name}
       />
 
       <div className={styles.field}>
@@ -76,9 +87,9 @@ export default function SignupForm() {
           <select
             className={styles.select}
             {...register('emailDomain')}>
-            <option>@ 선택하기</option>
-            <option>@naver.com</option>
-            <option>@gmail.com</option>
+            <option value="">@ 선택하기</option>
+            <option value="naver.com">@naver.com</option>
+            <option value="gmail.com">@gmail.com</option>
           </select>
         </div>
       </div>
@@ -88,6 +99,7 @@ export default function SignupForm() {
         required
         placeholder="숫자만 입력해주세요"
         {...register('phone')}
+        error={errors.phone}
       />
 
       <div className={styles.field}>
@@ -138,8 +150,8 @@ export default function SignupForm() {
 
       <Button
         type="submit"
-        className={styles.submit}
-        disabled={!isRequiredChecked}>
+        className={styles.submit}>
+        {/* disabled={!isRequiredChecked} */}
         가입하기
       </Button>
     </form>

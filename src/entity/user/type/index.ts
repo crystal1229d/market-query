@@ -1,3 +1,6 @@
+import { z } from 'zod'
+import { SignupSchema } from '../schema'
+
 export type User = {
   gender: 'male' | 'female' | string
   email: string
@@ -70,19 +73,7 @@ export type User = {
   role?: 'admin' | 'moderator' | 'user' | string
 }
 
-export type SignupFormInput = {
-  username: string
-  password: string
-  confirmPassword: string
-  name: string
-  phone: string
-  gender: string
-  emailId: string
-  emailDomain: string
-  birthYear: string
-  birthMonth: string
-  birthDay: string
-}
+export type SignupFormInput = z.infer<typeof SignupSchema>
 
 export type UserCreatePayload = {
   username: string
