@@ -1,0 +1,81 @@
+.form {
+  max-width: 700px;
+  margin: 0 auto 2rem auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.4rem;
+  border-top: 2px solid var(--gray-600);
+  color: var(--gray-600);
+}
+
+.field {
+  width: 100%;
+  padding: 0.6rem 2.5rem;
+  display: grid;
+  grid-template-columns: 25% 60%;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.label {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.required {
+  color: red;
+  margin-left: 0.3rem;
+}
+
+.input {
+  padding: 0.5rem;
+  border: 1px solid var(--gray-200);
+  border-radius: 4px;
+  width: 100%;
+}
+
+.select {
+  padding: 0.5rem;
+  border: 1px solid var(--gray-200);
+  color: var(--gray-400);
+  border-radius: 4px;
+  margin-left: 0.5rem;
+  min-width: 150px;
+}
+
+/* 이메일 입력 그룹 */
+.emailGroup {
+  display: flex;
+  align-items: center;
+}
+
+/* 성별 라디오 버튼 그룹 */
+.radioGroup {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+/* 생년월일 */
+.birth {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.birth input {
+  width: 70px;
+  padding: 0.5rem;
+  text-align: center;
+  border: 1px solid var(--gray-300);
+  border-radius: 4px;
+}
+
+/* 약관 외부 여백 */
+.extraInput {
+  margin-top: 1rem;
+}
+
+.submit {
+  width: 240px;
+}

@@ -69,3 +69,27 @@ export type User = {
   }
   role?: 'admin' | 'moderator' | 'user' | string
 }
+
+export type SignupFormInput = {
+  username: string
+  password: string
+  confirmPassword: string
+  name: string
+  phone: string
+  gender: string
+  emailId: string
+  emailDomain: string
+  birthYear: string
+  birthMonth: string
+  birthDay: string
+}
+
+export type UserCreatePayload = {
+  username: string
+  password: string
+  name: string
+  phone: string
+  gender: string
+  email: string
+  birthDate: string
+}
