@@ -11,11 +11,10 @@ type AgreementKeys =
 
 interface AgreementState {
   agreements: Record<AgreementKeys, boolean>
-  toggle: (key: AgreementKeys) => void
-  checkAll: () => void
-  uncheckAll: () => void
   isAllChecked: boolean
   isRequiredChecked: boolean
+  toggle: (key: AgreementKeys) => void
+  toggleAll: () => void
 }
 
 const initialAgreements: Record<AgreementKeys, boolean> = {
@@ -28,32 +27,45 @@ const initialAgreements: Record<AgreementKeys, boolean> = {
   email: false
 }
 
+const getIsAllChecked = (agreements: Record<AgreementKeys, boolean>) =>
+  Object.values(agreements).every(Boolean)
+
+const getIsRequiredChecked = (agreements: Record<AgreementKeys, boolean>) =>
+  agreements.termsRequired &&
+  agreements.privacyRequired &&
+  agreements.ageRequired
+
 export const useSignupAgreementStore = create<AgreementState>((set, get) => ({
   agreements: { ...initialAgreements },
+  isAllChecked: false,
+  isRequiredChecked: false,
+
   toggle: key =>
-    set(state => ({
-      agreements: {
+    set(state => {
+      const updated = {
         ...state.agreements,
         [key]: !state.agreements[key]
       }
-    })),
-  checkAll: () =>
-    set(() => ({
-      agreements: Object.fromEntries(
-        Object.keys(initialAgreements).map(k => [k, true])
-      ) as Record<AgreementKeys, boolean>
-    })),
-  uncheckAll: () => set(() => ({ agreements: { ...initialAgreements } })),
-  get isAllChecked() {
-    const { agreements } = get()
-    return Object.values(agreements).every(Boolean)
-  },
-  get isRequiredChecked() {
-    const { agreements } = get()
-    return (
-      agreements.termsRequired &&
-      agreements.privacyRequired &&
-      agreements.ageRequired
-    )
+
+      return {
+        agreements: updated,
+        isAllChecked: getIsAllChecked(updated),
+        isRequiredChecked: getIsRequiredChecked(updated)
+      }
+    }),
+
+  toggleAll: () => {
+    const current = get().agreements
+    const nextState = getIsAllChecked(current) ? false : true
+
+    const updated = Object.fromEntries(
+      Object.keys(initialAgreements).map(key => [key, nextState])
+    ) as Record<AgreementKeys, boolean>
+
+    set({
+      agreements: updated,
+      isAllChecked: getIsAllChecked(updated),
+      isRequiredChecked: getIsRequiredChecked(updated)
+    })
   }
 }))

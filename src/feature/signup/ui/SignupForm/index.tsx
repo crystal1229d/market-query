@@ -1,18 +1,22 @@
-import { useSignupForm } from '../../../../entity/user/hook/useSignupForm'
-import { useSignupAgreementStore } from '../../model/useSignupAgreementStore'
-import { SignupFormInput } from '@/entity/user/type'
-import FormField from '../FormField'
-import Agreement from '../Agreement'
+import { useNavigate } from 'react-router-dom'
+import { signup } from '../../api'
+import { useSignupForm } from '@feature/signup/hook/useSignupForm'
+import { SignupFormInput } from '@feature/signup/type'
+import { useSignupAgreementStore } from '@feature/signup/model/useSignupAgreementStore'
+import FormField from '@feature/signup/ui/FormField'
+import Agreement from '@feature/signup/ui/Agreement'
 import Button from '@ui/Button'
 import Radio from '@ui/Radio'
 import styles from './SignupForm.module.css'
 
 export default function SignupForm() {
-  const { register, handleSubmit, errors } = useSignupForm()
-  const { agreements, isRequiredChecked } = useSignupAgreementStore()
+  const { register, handleSubmit, isValid, errors } = useSignupForm()
+  const { isRequiredChecked } = useSignupAgreementStore()
+  const navigate = useNavigate()
 
-  const onSubmit = (data: SignupFormInput) => {
-    console.log('🎯 제출 성공!', data)
+  const isSubmitAvailable = isValid && isRequiredChecked
+
+  const onSubmit = async (data: SignupFormInput) => {
     const email = `${data.emailId}@${data.emailDomain}`
     const birth = `${data.birthYear}-${data.birthMonth}-${data.birthDay}`
     const payload = {
@@ -22,27 +26,30 @@ export default function SignupForm() {
       phone: data.phone,
       gender: data.gender,
       email,
-      birth,
-      agreements
+      birthDate: birth
     }
 
-    console.log(payload)
-    // mutation
-  }
+    try {
+      const res = await signup(payload)
+      console.log('🎉 가입 성공:', res)
 
-  const onError = (errors: any) => {
-    console.log('🚨 제출 실패 - 유효성 검증 실패:', errors)
+      localStorage.setItem('user', JSON.stringify(res))
+
+      navigate('/')
+    } catch (err) {
+      console.error('❌ 가입 실패:', err)
+    }
   }
 
   return (
     <form
       className={styles.form}
-      onSubmit={handleSubmit(onSubmit, onError)}>
+      onSubmit={handleSubmit(onSubmit)}>
       <FormField
         label="아이디"
         required
         placeholder="아이디를 입력해주세요"
-        {...register('username')}
+        register={register('username')}
         error={errors.username}
       />
 
@@ -51,7 +58,7 @@ export default function SignupForm() {
         required
         placeholder="비밀번호를 입력해주세요"
         type="password"
-        {...register('password')}
+        register={register('password')}
         error={errors.password}
       />
 
@@ -60,7 +67,7 @@ export default function SignupForm() {
         required
         placeholder="비밀번호를 한번 더 입력해주세요"
         type="password"
-        {...register('confirmPassword')}
+        register={register('confirmPassword')}
         error={errors.confirmPassword}
       />
 
@@ -68,7 +75,7 @@ export default function SignupForm() {
         label="이름"
         required
         placeholder="이름을 입력해 주세요"
-        {...register('name')}
+        register={register('name')}
         error={errors.name}
       />
 
@@ -92,13 +99,19 @@ export default function SignupForm() {
             <option value="gmail.com">@gmail.com</option>
           </select>
         </div>
+        {errors.emailId && (
+          <p className={styles.error}>{errors.emailId.message}</p>
+        )}
+        {errors.emailDomain && (
+          <p className={styles.error}>{errors.emailDomain.message}</p>
+        )}
       </div>
 
       <FormField
         label="휴대폰"
         required
         placeholder="숫자만 입력해주세요"
-        {...register('phone')}
+        register={register('phone')}
         error={errors.phone}
       />
 
@@ -144,14 +157,23 @@ export default function SignupForm() {
             {...register('birthDay')}
           />
         </div>
+        {errors.birthYear && (
+          <p className={styles.error}>{errors.birthYear.message}</p>
+        )}
+        {errors.birthMonth && (
+          <p className={styles.error}>{errors.birthMonth.message}</p>
+        )}
+        {errors.birthDay && (
+          <p className={styles.error}>{errors.birthDay.message}</p>
+        )}
       </div>
 
       <Agreement />
 
       <Button
         type="submit"
-        className={styles.submit}>
-        {/* disabled={!isRequiredChecked} */}
+        className={styles.submit}
+        disabled={!isSubmitAvailable}>
         가입하기
       </Button>
     </form>

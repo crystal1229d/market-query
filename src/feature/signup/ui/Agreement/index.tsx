@@ -3,7 +3,7 @@ import Checkbox from '@ui/Checkbox'
 import styles from './Agreement.module.css'
 
 export default function Agreement() {
-  const { agreements, toggle, isAllChecked, uncheckAll, checkAll } =
+  const { agreements, toggle, toggleAll, isAllChecked } =
     useSignupAgreementStore()
 
   return (
@@ -15,7 +15,8 @@ export default function Agreement() {
       <div className={styles.agreementBox}>
         <Checkbox
           label="전체 동의합니다."
-          onChange={() => (isAllChecked ? uncheckAll() : checkAll())}
+          checked={isAllChecked}
+          onChange={toggleAll}
           labelClassName={styles.checkAll}
         />
 

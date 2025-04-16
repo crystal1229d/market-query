@@ -1,6 +1,7 @@
 .field {
   width: 100%;
   padding: 0.6rem 2.5rem;
+
   display: grid;
   grid-template-columns: 25% 60%;
   align-items: center;
@@ -29,6 +30,8 @@
 }
 
 .errorMessage {
+  grid-column: 1 / -1;
+  width: 100%;
   color: red;
   font-size: 0.85rem;
   margin-top: 0.25rem;

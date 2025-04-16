@@ -10,13 +10,15 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 export default function Button({
   children,
   className,
+  disabled,
   type = 'button',
   ...rest
 }: ButtonProps) {
   return (
     <button
       type={type}
-      className={clsx(styles.button, className)}
+      disabled={disabled}
+      className={clsx(styles.button, className, disabled && styles.disabled)}
       {...rest}>
       {children}
     </button>

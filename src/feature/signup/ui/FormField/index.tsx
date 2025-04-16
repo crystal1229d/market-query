@@ -1,4 +1,5 @@
-import { FieldError, UseFormRegisterReturn } from 'react-hook-form'
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { FieldError, FieldErrors, UseFormRegisterReturn } from 'react-hook-form'
 import styles from './FormField.module.css'
 
 interface Props {
@@ -7,8 +8,9 @@ interface Props {
   placeholder?: string
   type?: string
   register?: UseFormRegisterReturn
-  error?: FieldError
+  error?: any | FieldError | FieldErrors
 }
+
 export default function FormField({
   label,
   required = false,
@@ -29,7 +31,9 @@ export default function FormField({
         placeholder={placeholder}
         {...register}
       />
-      {error && <p className={styles.errorMessage}>{error.message}</p>}
+      {error && 'message' in error && (
+        <p className={styles.errorMessage}>{error.message?.toString()}</p>
+      )}
     </div>
   )
 }

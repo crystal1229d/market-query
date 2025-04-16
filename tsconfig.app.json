@@ -33,6 +33,7 @@
 
       /* entity */
       "@entity/*": ["src/entity/*"],
+      "@user/*": ["src/entity/user/*"],
       "@product/*": ["src/entity/product/*"],
       "@cart/*": ["src/entity/cart/*"],
 

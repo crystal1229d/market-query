@@ -8,3 +8,8 @@
   font-weight: bold;
   cursor: pointer;
 }
+.disabled {
+  opacity: 0.6;
+  background-color: var(--gray-300);
+  cursor: not-allowed;
+}
