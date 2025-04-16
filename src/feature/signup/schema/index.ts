@@ -99,11 +99,6 @@ export const SignupSchema = z
     gender: z.enum(['male', 'female', 'none'])
   })
 
-  // .refine(data => data.password === data.confirmPassword, {
-  //   path: ['confirmPassword'],
-  //   message: '비밀번호가 일치하지 않습니다.'
-  // })
-
   .superRefine((data, ctx) => {
     if (data.password !== data.confirmPassword) {
       ctx.addIssue({
