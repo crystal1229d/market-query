@@ -1,4 +1,6 @@
-export async function fetchUser(userId: number = 1) {
+import { DEFAULT_USER_ID } from '@/shared/config'
+
+export async function fetchUser(userId: number = DEFAULT_USER_ID) {
   const response = await fetch(
     `${import.meta.env.VITE_DUMMYJSON_BASE_URL}/users/${userId}`
   )

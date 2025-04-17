@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { Product } from '@product/type'
 import { FaShoppingCart, FaStar, FaCommentDots } from 'react-icons/fa'
 import styles from './ProductItem.module.css'
+import { useCartMutation } from '@/entity/cart/hook/useCartMutation'
 
 interface Props {
   product: Product
@@ -17,8 +18,15 @@ export default function ProductItem({ product }: Props) {
     discountPercentage = 0,
     reviews
   } = product
+  const { addToCart } = useCartMutation()
 
   const originalPrice = Math.round(price / (1 - discountPercentage / 100))
+
+  const handleAddToCart = (e: React.MouseEvent) => {
+    e.preventDefault()
+    e.stopPropagation()
+    addToCart(id!, 1)
+  }
 
   return (
     <Link
@@ -58,7 +66,9 @@ export default function ProductItem({ product }: Props) {
         </div>
       </div>
 
-      <div className={styles.cartBtn}>
+      <div
+        className={styles.cartBtn}
+        onClick={handleAddToCart}>
         <FaShoppingCart />
         <span>담기</span>
       </div>

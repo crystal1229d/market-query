@@ -1,8 +1,8 @@
 import { useQuery } from '@tanstack/react-query'
 import { fetchUser } from '../api'
-import { QUERY_CONFIG } from '@/shared/config'
+import { DEFAULT_USER_ID, QUERY_CONFIG } from '@/shared/config'
 
-export const useUser = (userId: number = 1) => {
+export const useUser = (userId: number = DEFAULT_USER_ID) => {
   return useQuery({
     queryKey: ['user', userId],
     queryFn: () => fetchUser(userId),
