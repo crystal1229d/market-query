@@ -1,0 +1,31 @@
+.form {
+  max-width: 370px;
+  margin: 0 auto 2rem auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.8rem;
+  color: var(--gray-600);
+}
+
+.input {
+  border: 1px solid var(--gray-200);
+  padding: 1rem;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.button {
+  width: 100%;
+  font-weight: 400;
+}
+.button:first-of-type {
+  margin-top: 2rem;
+}
+
+.error {
+  width: 100%;
+  color: red;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}

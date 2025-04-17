@@ -34,9 +34,7 @@ export default function Header() {
                 <li>
                   <Link to="/profile">마이페이지</Link>
                 </li>
-                <li>
-                  <button onClick={handleLogout}>로그아웃</button>
-                </li>
+                <li onClick={handleLogout}>로그아웃</li>
               </>
             )}
             <li>고객센터</li>

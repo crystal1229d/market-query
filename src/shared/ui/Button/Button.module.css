@@ -3,10 +3,22 @@
   background-color: var(--purple);
   color: var(--white);
   border: none;
-  border-radius: 6px;
+  border-radius: 5px;
   font-size: 1.1rem;
   font-weight: bold;
   cursor: pointer;
+}
+
+.outline {
+  background-color: var(--white);
+  color: var(--purple);
+  border: 1px solid var(--purple);
+}
+
+.disabled {
+  opacity: 0.6;
+  background-color: var(--gray-300);
+  cursor: not-allowed;
 }
 .disabled {
   opacity: 0.6;
