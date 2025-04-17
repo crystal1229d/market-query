@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom'
+import { Outlet, useNavigate } from 'react-router-dom'
 import { useUser } from '@user/hook/useUser'
 import Spinner from '@ui/Spinner'
 import ProfileCard from '@/feature/profile/ui/ProfileCard'
@@ -21,8 +21,7 @@ export default function ProfilePage() {
         </aside>
 
         <section className={styles.content}>
-          <h2>마이페이지👋</h2>
-          <p>내 정보</p>
+          <Outlet />
         </section>
       </main>
     </div>
