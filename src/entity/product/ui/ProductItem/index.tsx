@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 import { Product } from '@product/type'
 import { FaShoppingCart, FaStar, FaCommentDots } from 'react-icons/fa'
-import styles from './ProductItem.module.css'
 import { useCartMutation } from '@/entity/cart/hook/useCartMutation'
+import styles from './ProductItem.module.css'
 
 interface Props {
   product: Product
