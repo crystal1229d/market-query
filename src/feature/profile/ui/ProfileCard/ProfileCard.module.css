@@ -1,0 +1,50 @@
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  padding: 1.2rem;
+
+  background: var(--white);
+  border-radius: 7px;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  padding: 0.4rem;
+  margin-bottom: 1rem;
+
+  border: 1px solid var(--gray-400);
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.greetingContainer {
+  width: 100%;
+  margin: 1rem 0;
+
+  text-align: left;
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+.greetingContainer .greeting {
+  margin-right: 0.3rem;
+  font-weight: 800;
+
+  background: linear-gradient(to right, #9f1ef5, #3fd5ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.meta {
+  width: 100%;
+
+  font-size: 0.85rem;
+  font-weight: 400;
+  line-height: 190%;
+  color: var(--gray-500);
+  text-align: left;
+}

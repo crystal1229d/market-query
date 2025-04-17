@@ -1,0 +1,23 @@
+.menu {
+  padding: 1.2rem;
+
+  background: var(--white);
+  border-radius: 7px;
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.menu li {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+
+.content {
+  flex: 1;
+  padding: 2rem;
+  background-color: #fff;
+}
