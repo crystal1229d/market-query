@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+
 import { Product } from '@product/type'
 import { FaShoppingCart, FaStar, FaCommentDots } from 'react-icons/fa'
 import AddToCartModal from '@cart/ui/AddtoCartModal'

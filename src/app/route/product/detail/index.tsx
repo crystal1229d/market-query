@@ -1,12 +1,14 @@
+import { useState } from 'react'
 import { useParams } from 'react-router-dom'
+
 import { useProductQuery } from '@/feature/product-detail/hook/useProductQuery'
-import Spinner from '@ui/Spinner'
 import ReviewsList from '@/feature/product-detail/ui/ReviewsList'
 import TagsList from '@/feature/product-detail/ui/TagsList'
+import { useCartStore } from '@cart/model/useCartStore'
+import Spinner from '@ui/Spinner'
+import Button from '@ui/Button'
+
 import styles from './page.module.css'
-import { useCartStore } from '@/entity/cart/model/useCartStore'
-import Button from '@/shared/ui/Button'
-import { useState } from 'react'
 
 export default function ProductDetailPage() {
   const { id } = useParams<{ id: string }>()

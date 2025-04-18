@@ -15,3 +15,29 @@
 .iconButton:hover {
   color: var(--purple);
 }
+
+/* UtilityIcons.module.css */
+.iconGroup {
+  display: flex;
+  gap: 12px;
+  position: relative;
+}
+
+.iconButton {
+  position: relative;
+  font-size: 24px;
+  color: #333;
+}
+
+.badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background-color: #ff4d4f;
+  color: white;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 12px;
+  font-weight: bold;
+  line-height: 1;
+}

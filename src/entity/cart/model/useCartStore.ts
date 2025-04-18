@@ -8,6 +8,11 @@ type CartStore = {
   updateQuantity: (productId: number, quantity: number) => void
   removeItem: (productId: number) => void
   clearCart: () => void
+
+  // Selectors
+  itemCount: () => number
+  totalPrice: () => number
+  hasItem: (productId: number) => boolean
 }
 
 export const useCartStore = create<CartStore>()(
@@ -38,7 +43,17 @@ export const useCartStore = create<CartStore>()(
       removeItem: productId => {
         set({ items: get().items.filter(i => i.productId !== productId) })
       },
-      clearCart: () => set({ items: [] })
+      clearCart: () => set({ items: [] }),
+
+      // Selectors
+      itemCount: () =>
+        get().items.reduce((count, item) => count + item.quantity, 0),
+
+      totalPrice: () =>
+        get().items.reduce((sum, item) => sum + item.price * item.quantity, 0),
+
+      hasItem: productId =>
+        get().items.some(item => item.productId === productId)
     }),
     {
       name: 'cart-storage'

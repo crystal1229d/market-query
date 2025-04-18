@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom'
-import { signup } from '../../api'
+
+import { signup } from '@feature/signup/api'
 import { useSignupForm } from '@feature/signup/hook/useSignupForm'
 import { SignupFormInput } from '@feature/signup/type'
 import { useSignupAgreementStore } from '@feature/signup/model/useSignupAgreementStore'
@@ -7,6 +8,7 @@ import FormField from '@feature/signup/ui/FormField'
 import Agreement from '@feature/signup/ui/Agreement'
 import Button from '@ui/Button'
 import Radio from '@ui/Radio'
+
 import styles from './SignupForm.module.css'
 
 export default function SignupForm() {
