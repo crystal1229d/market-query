@@ -1,0 +1,50 @@
+/* src/entities/cart/ui/AddToCartModal.module.css */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: var(--z-layout);
+}
+
+.modal {
+  background: white;
+  border-radius: 8px;
+  padding: 24px;
+  max-width: 500px;
+  width: 100%;
+  z-index: var(--cart-modal);
+}
+
+.product {
+  display: flex;
+  gap: 16px;
+}
+
+.info h3 {
+  margin-bottom: 4px;
+  font-size: 18px;
+}
+
+.quantity {
+  display: flex;
+  gap: 8px;
+  margin: 12px 0;
+  align-items: center;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.add {
+  background: #5f0080;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+}

@@ -9,3 +9,11 @@ export interface Cart {
   totalProducts: number
   totalQuantity: number
 }
+
+export interface CartItem {
+  productId: number
+  name: string
+  price: number
+  thumbnail?: string
+  quantity: number
+}

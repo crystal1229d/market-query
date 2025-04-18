@@ -1,4 +1,6 @@
 :root {
   --z-header: 10;
   --z-banner: 0;
+  --z-layout: 900;
+  --z-cart-modal: 1000;
 }

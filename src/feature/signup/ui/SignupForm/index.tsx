@@ -33,7 +33,7 @@ export default function SignupForm() {
       const res = await signup(payload)
       console.log('🎉 가입 성공:', res)
 
-      localStorage.setItem('user', JSON.stringify(res))
+      //   localStorage.setItem('user', JSON.stringify(res))
 
       navigate('/')
     } catch (err) {

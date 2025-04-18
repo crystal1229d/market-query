@@ -13,7 +13,7 @@ export const fetchProducts = async ({
   pageParam = QUERY_CONFIG.INITIAL_PAGE,
   keyword
 }: Props): Promise<GetAllProductsResponse> => {
-  const baseURL = `${import.meta.env.VITE_DUMMYJSON_BASE_URL}/products`
+  const baseURL = `/api/products`
   const limit = QUERY_CONFIG.PRODUCTS_LIMIT
 
   const params = new URLSearchParams()

@@ -4,10 +4,19 @@ import Spinner from '@ui/Spinner'
 import ReviewsList from '@/feature/product-detail/ui/ReviewsList'
 import TagsList from '@/feature/product-detail/ui/TagsList'
 import styles from './page.module.css'
+import { useCartStore } from '@/entity/cart/model/useCartStore'
+import Button from '@/shared/ui/Button'
+import { useState } from 'react'
 
 export default function ProductDetailPage() {
   const { id } = useParams<{ id: string }>()
   const productId = Number(id)
+
+  const [quantity, setQuantity] = useState(1)
+  const handleIncrease = () => setQuantity(q => q + 1)
+  const handleDecrease = () => setQuantity(q => Math.max(1, q - 1))
+
+  const { addItem } = useCartStore()
 
   const { data: product, isLoading, error } = useProductQuery(productId)
 
@@ -25,6 +34,16 @@ export default function ProductDetailPage() {
     reviews,
     tags
   } = product
+
+  const handleAddToCart = () => {
+    addItem({
+      productId,
+      name: title,
+      price,
+      thumbnail: images?.[0] ?? '',
+      quantity
+    })
+  }
 
   return (
     <div className={styles.container}>
@@ -44,6 +63,18 @@ export default function ProductDetailPage() {
 
       <ReviewsList reviews={reviews || []} />
       <TagsList tags={tags || []} />
+
+      <div className={styles.purchaseSection}>
+        <div className={styles.quantityBox}>
+          <button onClick={handleDecrease}>-</button>
+          <span>{quantity}</span>
+          <button onClick={handleIncrease}>+</button>
+        </div>
+        <p className={styles.total}>
+          총 합계: <strong>{(price * quantity).toLocaleString()}원</strong>
+        </p>
+        <Button onClick={handleAddToCart}>장바구니에 담기</Button>
+      </div>
     </div>
   )
 }
