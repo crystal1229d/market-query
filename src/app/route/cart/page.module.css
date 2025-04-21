@@ -1,0 +1,72 @@
+.wrapper {
+  min-height: 100vh;
+  background-color: #f0f3f5;
+}
+
+.title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-align: center;
+  padding: 3rem 0 2rem 0;
+  color: var(--gray-600);
+}
+
+.page {
+  width: 1050px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 2rem 0;
+
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* ------------- 왼쪽 ------------- */
+.left {
+  width: 565px;
+  margin-left: 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.left > div {
+  padding: 15px;
+  background: var(--white);
+  border-radius: 14px;
+}
+
+.available-products {
+  width: 565px;
+  min-height: 100px;
+}
+
+.unavailable-products {
+  width: 565px;
+  min-height: 100px;
+}
+
+/* ------------- 오른쪽 ------------- */
+.right {
+  width: 375px;
+}
+.right > div {
+  background: var(--white);
+  border-radius: 14px;
+}
+
+.address {
+  width: 375px;
+  height: 143px;
+}
+
+.order {
+  width: 375px;
+  height: 257px;
+}
+
+.button {
+  width: 375px;
+  height: 56px;
+}

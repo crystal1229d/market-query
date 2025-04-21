@@ -6,16 +6,19 @@ interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string
   inputClassName?: string
   labelClassName?: string
+  variant?: 'circle' | 'square'
 }
 
 export default function Checkbox({
   label,
   inputClassName,
   labelClassName,
+  variant = 'circle',
   id,
   ...rest
 }: CheckboxProps) {
   const checkboxId = id || `checkbox-${Math.random().toString(36).substr(2, 9)}`
+  const shapeStyle = variant === 'square' ? styles.square : styles.circle
 
   return (
     <label
@@ -24,7 +27,7 @@ export default function Checkbox({
       <input
         type="checkbox"
         id={checkboxId}
-        className={clsx(styles.checkbox, inputClassName)}
+        className={clsx(styles.checkbox, shapeStyle, inputClassName)}
         {...rest}
       />
       {label && (

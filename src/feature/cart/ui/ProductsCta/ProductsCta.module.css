@@ -1,0 +1,63 @@
+.wrapper {
+  width: 565px;
+  height: 126px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+
+  background-color: var(--white);
+  border-radius: 14px;
+}
+
+.topRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.checkboxLabel {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--gray-600);
+}
+
+.topRow button {
+  padding: 0.3rem 0.8rem;
+  font-size: 0.85rem;
+  font-weight: 900;
+  color: var(--gray-600);
+  background: none;
+  border: 1px solid var(--gray-200);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.bottomRow {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.bottomRow .badge {
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.6rem 0.8rem;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+}
+
+.bottomRow .badge.available {
+  background-color: #f3e8ff;
+  color: var(--purple);
+  opacity: 0.75;
+}
+
+.bottomRow .badge.unavailable {
+  background-color: var(--gray-100);
+  color: var(--gray-400);
+}

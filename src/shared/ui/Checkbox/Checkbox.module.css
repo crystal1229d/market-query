@@ -9,16 +9,26 @@
   appearance: none;
   width: 1.4rem;
   height: 1.4rem;
-  border: 1.5px solid var(--gray-200);
-  border-radius: 50%;
   cursor: pointer;
   position: relative;
   margin-right: 0.5rem;
+  border: 1.5px solid var(--gray-200);
 }
+
+.circle {
+  border-radius: 50%;
+}
+
+.square {
+  border-radius: 4px;
+  border: 2px solid var(--gray-300);
+}
+
 .checkbox:checked {
   background-color: var(--purple);
   border-color: var(--purple);
 }
+
 .checkbox:checked::after {
   content: '✔';
   color: var(--white);

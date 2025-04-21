@@ -7,7 +7,7 @@ import CreateProductPage from '@/app/route/product/create'
 import ProductDetailPage from '@/app/route/product/detail'
 import SearchResultPage from '@/app/route/product/search'
 
-import CartListPage from '@/app/route/cart/list'
+import CartPage from '@/app/route/cart'
 
 import SignupPage from '@/app/route/auth/signup'
 import SigninPage from '@/app/route/auth/signin'
@@ -46,7 +46,7 @@ export const appRoutes = [
   { path: '/product/new', element: <CreateProductPage /> },
   { path: '/search', element: <SearchResultPage /> },
 
-  { path: '/cart', element: <CartListPage /> },
+  { path: '/cart', element: <CartPage /> },
 
   { path: '/signup', element: <SignupPage /> },
   { path: '/signin', element: <SigninPage /> },
