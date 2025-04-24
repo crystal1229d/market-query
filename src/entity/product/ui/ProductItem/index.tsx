@@ -13,15 +13,7 @@ interface Props {
 export default function ProductItem({ product }: Props) {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null)
 
-  const {
-    id,
-    thumbnail,
-    title,
-    price,
-    rating,
-    discountPercentage = 0,
-    reviews
-  } = product
+  const { id, thumbnail, title, price, rating, discountPercentage = 0, reviews } = product
 
   const originalPrice = Math.round(price / (1 - discountPercentage / 100))
 
@@ -33,29 +25,19 @@ export default function ProductItem({ product }: Props) {
 
   return (
     <>
-      <Link
-        to={`/product/${id}`}
-        className={styles.card}>
+      <Link to={`/product/${id}`} className={styles.card}>
         <div className={styles.badgeTop}>{discountPercentage}% 할인</div>
 
         <div className={styles.imageWrapper}>
-          <img
-            src={thumbnail}
-            alt={title}
-            className={styles.thumbnail}
-          />
-          {discountPercentage > 15 && (
-            <div className={styles.badge}>장보기 특가</div>
-          )}
+          <img src={thumbnail} alt={title} className={styles.thumbnail} />
+          {discountPercentage > 15 && <div className={styles.badge}>장보기 특가</div>}
         </div>
 
         <div className={styles.info}>
           <h3 className={styles.title}>{title}</h3>
 
           <div className={styles.priceBox}>
-            <span className={styles.originalPrice}>
-              ${originalPrice.toLocaleString()}
-            </span>
+            <span className={styles.originalPrice}>${originalPrice.toLocaleString()}</span>
             <span className={styles.discount}>{discountPercentage}%</span>
             <span className={styles.price}>${price.toLocaleString()}</span>
           </div>
@@ -70,18 +52,13 @@ export default function ProductItem({ product }: Props) {
           </div>
         </div>
 
-        <div
-          className={styles.cartBtn}
-          onClick={handleAddToCart}>
+        <div className={styles.cartBtn} onClick={handleAddToCart}>
           <FaShoppingCart />
           <span>담기</span>
         </div>
       </Link>
       {selectedProduct && (
-        <AddToCartModal
-          product={product}
-          onClose={() => setSelectedProduct(null)}
-        />
+        <AddToCartModal product={product} onClose={() => setSelectedProduct(null)} />
       )}
     </>
   )

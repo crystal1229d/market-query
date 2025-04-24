@@ -56,12 +56,7 @@ export const appRoutes = [
     children: [
       {
         index: true,
-        element: (
-          <Navigate
-            to="order"
-            replace
-          />
-        )
+        element: <Navigate to="order" replace />
       },
       { path: 'pick', element: <PickListPage /> },
       { path: 'order', element: <OrderListPage /> },

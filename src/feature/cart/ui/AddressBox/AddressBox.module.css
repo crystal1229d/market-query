@@ -1,0 +1,55 @@
+.wrapper {
+  width: 375px;
+  min-height: 143px;
+  padding: 1rem;
+
+  background-color: var(--white);
+  border-radius: 14px;
+  color: var(--gray-600);
+}
+
+.title_wrapper {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 1rem;
+}
+.title_wrapper h1 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--gray-600);
+}
+
+.badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.3rem 0.7rem;
+  margin-bottom: 5px;
+
+  background-color: #f3e8ff;
+  color: var(--purple);
+  opacity: 0.75;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+}
+
+.address_wrapper {
+  margin-left: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.address_wrapper p {
+  font-size: 0.92rem;
+  font-weight: 540;
+}
+
+.addressButton {
+  padding: 0.3rem 0.65rem;
+  font-size: 0.86rem;
+  color: var(--gray-600);
+  border: 1px solid var(--gray-200);
+  flex-shrink: 0;
+  margin-left: 24px;
+}

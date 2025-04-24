@@ -4,10 +4,7 @@ import { appRoutes } from './config'
 
 function renderRoutes(routes: RouteObject[]): React.ReactNode {
   return routes.map(({ path, element, children }, i) => (
-    <Route
-      key={i}
-      path={path}
-      element={element}>
+    <Route key={i} path={path} element={element}>
       {children && renderRoutes(children)}
     </Route>
   ))

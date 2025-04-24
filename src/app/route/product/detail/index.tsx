@@ -25,17 +25,8 @@ export default function ProductDetailPage() {
   if (isLoading) return <Spinner />
   if (error || !product) return <p>Error</p>
 
-  const {
-    title,
-    description,
-    category,
-    price,
-    discountPercentage,
-    images,
-    rating,
-    reviews,
-    tags
-  } = product
+  const { title, description, category, price, discountPercentage, images, rating, reviews, tags } =
+    product
 
   const handleAddToCart = () => {
     addItem({
@@ -51,11 +42,7 @@ export default function ProductDetailPage() {
     <div className={styles.container}>
       <h2 className={styles.title}>{title}</h2>
 
-      <img
-        src={images?.[0]}
-        alt={title}
-        className={styles.image}
-      />
+      <img src={images?.[0]} alt={title} className={styles.image} />
 
       <p className={styles.description}>{description}</p>
       <p className={styles.info}>Price: ${price.toLocaleString()}</p>

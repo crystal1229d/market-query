@@ -19,6 +19,7 @@
 
   display: flex;
   justify-content: center;
+  align-items: flex-start;
   gap: 20px;
 }
 
@@ -37,11 +38,6 @@
   border-radius: 14px;
 }
 
-.available-products {
-  width: 565px;
-  min-height: 100px;
-}
-
 .unavailable-products {
   width: 565px;
   min-height: 100px;
@@ -50,8 +46,18 @@
 /* ------------- 오른쪽 ------------- */
 .right {
   width: 375px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  width: 375px;
+  position: sticky;
+  top: 70px;
+  right: 0px;
 }
 .right > div {
+  padding: 15px;
   background: var(--white);
   border-radius: 14px;
 }

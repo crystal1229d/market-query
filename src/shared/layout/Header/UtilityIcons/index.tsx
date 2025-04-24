@@ -10,20 +10,12 @@ export default function UtilityIcons() {
 
   return (
     <div className={styles.iconGroup}>
-      <Link
-        to="/wishlist"
-        className={styles.iconButton}
-        aria-label="찜 목록">
+      <Link to="/wishlist" className={styles.iconButton} aria-label="찜 목록">
         <AiOutlineHeart />
       </Link>
-      <Link
-        to="/cart"
-        className={styles.iconButton}
-        aria-label="장바구니">
+      <Link to="/cart" className={styles.iconButton} aria-label="장바구니">
         <BsCart2 />
-        {cartItemCount > 0 && (
-          <span className={styles.badge}>{cartItemCount}</span>
-        )}
+        {cartItemCount > 0 && <span className={styles.badge}>{cartItemCount}</span>}
       </Link>
     </div>
   )

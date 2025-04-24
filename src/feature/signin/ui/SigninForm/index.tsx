@@ -29,32 +29,23 @@ export default function SigninForm() {
   }
 
   return (
-    <form
-      className={styles.form}
-      onSubmit={handleSubmit(handleLogin)}>
+    <form className={styles.form} onSubmit={handleSubmit(handleLogin)}>
       <input
         type="text"
         placeholder="아이디를 입력해주세요"
         className={styles.input}
         {...register('username')}
       />
-      {errors?.username && (
-        <p className={styles.error}>{errors.username.message}</p>
-      )}
+      {errors?.username && <p className={styles.error}>{errors.username.message}</p>}
       <input
         type="password"
         placeholder="비밀번호를 입력해주세요"
         className={styles.input}
         {...register('password')}
       />
-      {errors?.password && (
-        <p className={styles.error}>{errors.password.message}</p>
-      )}
+      {errors?.password && <p className={styles.error}>{errors.password.message}</p>}
 
-      <Button
-        type="submit"
-        disabled={!isValid}
-        className={styles.button}>
+      <Button type="submit" disabled={!isValid} className={styles.button}>
         로그인
       </Button>
       <Button

@@ -24,13 +24,8 @@ export default function Nav() {
     <nav className={styles.nav}>
       <ul className={styles.navList}>
         {navRoutes.map(({ path, label }) => (
-          <li
-            key={path}
-            className={clsx(styles.navItem, isActive(path) && styles.active)}>
-            <button
-              type="button"
-              onClick={() => handleNavClick(path)}
-              className={styles.navLink}>
+          <li key={path} className={clsx(styles.navItem, isActive(path) && styles.active)}>
+            <button type="button" onClick={() => handleNavClick(path)} className={styles.navLink}>
               {label}
             </button>
           </li>

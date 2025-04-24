@@ -21,18 +21,14 @@ export default function Checkbox({
   const shapeStyle = variant === 'square' ? styles.square : styles.circle
 
   return (
-    <label
-      htmlFor={checkboxId}
-      className={styles.wrapper}>
+    <label htmlFor={checkboxId} className={styles.wrapper}>
       <input
         type="checkbox"
         id={checkboxId}
         className={clsx(styles.checkbox, shapeStyle, inputClassName)}
         {...rest}
       />
-      {label && (
-        <span className={clsx(styles.label, labelClassName)}>{label}</span>
-      )}
+      {label && <span className={clsx(styles.label, labelClassName)}>{label}</span>}
     </label>
   )
 }

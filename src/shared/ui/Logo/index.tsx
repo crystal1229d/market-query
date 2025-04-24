@@ -12,9 +12,7 @@ export default function Logo() {
   }
 
   return (
-    <div
-      className={styles.logo}
-      onClick={handleLogoClick}>
+    <div className={styles.logo} onClick={handleLogoClick}>
       Market Query
     </div>
   )

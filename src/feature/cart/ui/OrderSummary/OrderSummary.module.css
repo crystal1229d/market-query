@@ -1,0 +1,9 @@
+.wrapper {
+  width: 375px;
+  min-height: 143px;
+  padding: 1rem;
+
+  background-color: var(--white);
+  border-radius: 14px;
+  color: var(--gray-600);
+}

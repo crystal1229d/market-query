@@ -14,19 +14,14 @@ export default function SearchBar() {
   }
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className={styles.search}>
+    <form onSubmit={handleSubmit} className={styles.search}>
       <input
         type="text"
         value={keyword}
         onChange={e => setKeyword(e.target.value)}
         placeholder="검색어를 입력해주세요"
       />
-      <button
-        type="submit"
-        className={styles.iconButton}
-        aria-label="찜 목록">
+      <button type="submit" className={styles.iconButton} aria-label="찜 목록">
         <HiMagnifyingGlass />
       </button>
     </form>

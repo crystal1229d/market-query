@@ -24,9 +24,7 @@ export const useCartStore = create<CartStore>()(
         if (existing) {
           set({
             items: get().items.map(i =>
-              i.productId === item.productId
-                ? { ...i, quantity: i.quantity + item.quantity }
-                : i
+              i.productId === item.productId ? { ...i, quantity: i.quantity + item.quantity } : i
             )
           })
         } else {
@@ -35,9 +33,7 @@ export const useCartStore = create<CartStore>()(
       },
       updateQuantity: (productId, quantity) => {
         set({
-          items: get().items.map(i =>
-            i.productId === productId ? { ...i, quantity } : i
-          )
+          items: get().items.map(i => (i.productId === productId ? { ...i, quantity } : i))
         })
       },
       removeItem: productId => {
@@ -46,14 +42,11 @@ export const useCartStore = create<CartStore>()(
       clearCart: () => set({ items: [] }),
 
       // Selectors
-      itemCount: () =>
-        get().items.reduce((count, item) => count + item.quantity, 0),
+      itemCount: () => get().items.reduce((count, item) => count + item.quantity, 0),
 
-      totalPrice: () =>
-        get().items.reduce((sum, item) => sum + item.price * item.quantity, 0),
+      totalPrice: () => get().items.reduce((sum, item) => sum + item.price * item.quantity, 0),
 
-      hasItem: productId =>
-        get().items.some(item => item.productId === productId)
+      hasItem: productId => get().items.some(item => item.productId === productId)
     }),
     {
       name: 'cart-storage'

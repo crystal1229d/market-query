@@ -11,14 +11,8 @@ interface Props {
 }
 
 export const ProductList = ({ sortBy, keyword }: Props) => {
-  const {
-    data,
-    isLoading,
-    isError,
-    fetchNextPage,
-    hasNextPage,
-    isFetchingNextPage
-  } = useProductsQuery({ sortBy, keyword })
+  const { data, isLoading, isError, fetchNextPage, hasNextPage, isFetchingNextPage } =
+    useProductsQuery({ sortBy, keyword })
 
   const { observerRef } = useInfiniteScroll({
     hasNextPage,
@@ -34,12 +28,7 @@ export const ProductList = ({ sortBy, keyword }: Props) => {
     <>
       <div className={styles.grid}>
         {data?.pages.map(page =>
-          page.products.map(product => (
-            <ProductItem
-              key={product.id}
-              product={product}
-            />
-          ))
+          page.products.map(product => <ProductItem key={product.id} product={product} />)
         )}
       </div>
       {isFetchingNextPage && <ProductSkeletonList count={4} />}

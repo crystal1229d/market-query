@@ -11,9 +11,7 @@ export default function TagsList({ tags }: Props) {
     <div className={styles.section}>
       <h3>Tags</h3>
       {tags?.map((tag: string, idx: number) => (
-        <p
-          key={idx}
-          className={styles.tag}>
+        <p key={idx} className={styles.tag}>
           {tag}
         </p>
       ))}

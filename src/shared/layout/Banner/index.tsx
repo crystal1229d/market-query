@@ -3,11 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay } from 'swiper/modules'
 import styles from './Banner.module.css'
 
-const bannerImages: string[] = [
-  '/img/banner_01.png',
-  '/img/banner_02.jpg',
-  '/img/banner_03.jpg'
-]
+const bannerImages: string[] = ['/img/banner_01.png', '/img/banner_02.jpg', '/img/banner_03.jpg']
 
 export default function Banner() {
   const [currentSlide, setCurrentSlide] = useState(1)
@@ -22,11 +18,7 @@ export default function Banner() {
         className="swiper">
         {bannerImages.map((src, index) => (
           <SwiperSlide key={index}>
-            <img
-              src={src}
-              alt={`Banner ${index + 1}`}
-              className={styles.image}
-            />
+            <img src={src} alt={`Banner ${index + 1}`} className={styles.image} />
           </SwiperSlide>
         ))}
       </Swiper>

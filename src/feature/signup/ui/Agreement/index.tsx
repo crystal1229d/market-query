@@ -3,8 +3,7 @@ import Checkbox from '@ui/Checkbox'
 import styles from './Agreement.module.css'
 
 export default function Agreement() {
-  const { agreements, toggle, toggleAll, isAllChecked } =
-    useSignupAgreementStore()
+  const { agreements, toggle, toggleAll, isAllChecked } = useSignupAgreementStore()
 
   return (
     <div className={styles.field}>
@@ -52,11 +51,7 @@ export default function Agreement() {
               onChange={() => toggle('marketing')}
             />
             <div className={styles.inlineOptions}>
-              <Checkbox
-                label="SMS"
-                checked={agreements.sms}
-                onChange={() => toggle('sms')}
-              />
+              <Checkbox label="SMS" checked={agreements.sms} onChange={() => toggle('sms')} />
               <Checkbox
                 label="이메일"
                 checked={agreements.email}

@@ -31,14 +31,9 @@ export default function CreateProductPage() {
           />
 
           {images.length > 0 && (
-            <Swiper
-              spaceBetween={10}
-              slidesPerView="auto"
-              className={styles.thumbnailSwiper}>
+            <Swiper spaceBetween={10} slidesPerView="auto" className={styles.thumbnailSwiper}>
               {images.map((file, index) => (
-                <SwiperSlide
-                  key={index}
-                  className={styles.thumbnailSlide}>
+                <SwiperSlide key={index} className={styles.thumbnailSlide}>
                   <div className={styles.thumbnailBox}>
                     <img
                       src={URL.createObjectURL(file)}
@@ -58,45 +53,19 @@ export default function CreateProductPage() {
           )}
         </div>
 
-        <input
-          type="text"
-          name="title"
-          placeholder="상품명"
-          className={styles.input}
-        />
-        <textarea
-          name="description"
-          placeholder="상품 설명"
-          className={styles.textarea}
-        />
-        <input
-          type="text"
-          name="category"
-          placeholder="카테고리"
-          className={styles.input}
-        />
-        <input
-          type="number"
-          name="price"
-          placeholder="가격 (숫자)"
-          className={styles.input}
-        />
+        <input type="text" name="title" placeholder="상품명" className={styles.input} />
+        <textarea name="description" placeholder="상품 설명" className={styles.textarea} />
+        <input type="text" name="category" placeholder="카테고리" className={styles.input} />
+        <input type="number" name="price" placeholder="가격 (숫자)" className={styles.input} />
         <input
           type="number"
           name="discountPercentage"
           placeholder="할인율 (%)"
           className={styles.input}
         />
-        <input
-          type="text"
-          name="tags"
-          placeholder="태그 (쉼표로 구분)"
-          className={styles.input}
-        />
+        <input type="text" name="tags" placeholder="태그 (쉼표로 구분)" className={styles.input} />
 
-        <button
-          type="submit"
-          className={styles.submitButton}>
+        <button type="submit" className={styles.submitButton}>
           상품 등록
         </button>
       </form>

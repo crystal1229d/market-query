@@ -8,11 +8,7 @@ interface Props {
 export default function ProfileCard({ user }: Props) {
   return (
     <div className={styles.profile}>
-      <img
-        src={user.image}
-        alt="프로필 이미지"
-        className={styles.avatar}
-      />
+      <img src={user.image} alt="프로필 이미지" className={styles.avatar} />
 
       <p className={styles.greetingContainer}>
         <span className={styles.greeting}>반가워요!</span>

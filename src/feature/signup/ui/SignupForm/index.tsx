@@ -44,9 +44,7 @@ export default function SignupForm() {
   }
 
   return (
-    <form
-      className={styles.form}
-      onSubmit={handleSubmit(onSubmit)}>
+    <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
       <FormField
         label="아이디"
         required
@@ -93,20 +91,14 @@ export default function SignupForm() {
             className={styles.input}
             {...register('emailId')}
           />
-          <select
-            className={styles.select}
-            {...register('emailDomain')}>
+          <select className={styles.select} {...register('emailDomain')}>
             <option value="">@ 선택하기</option>
             <option value="naver.com">@naver.com</option>
             <option value="gmail.com">@gmail.com</option>
           </select>
         </div>
-        {errors.emailId && (
-          <p className={styles.error}>{errors.emailId.message}</p>
-        )}
-        {errors.emailDomain && (
-          <p className={styles.error}>{errors.emailDomain.message}</p>
-        )}
+        {errors.emailId && <p className={styles.error}>{errors.emailId.message}</p>}
+        {errors.emailDomain && <p className={styles.error}>{errors.emailDomain.message}</p>}
       </div>
 
       <FormField
@@ -120,62 +112,29 @@ export default function SignupForm() {
       <div className={styles.field}>
         <label className={styles.label}>성별</label>
         <div className={styles.radioGroup}>
-          <Radio
-            label="남자"
-            value="male"
-            {...register('gender')}
-          />
-          <Radio
-            label="여자"
-            value="female"
-            {...register('gender')}
-          />
-          <Radio
-            label="선택안함"
-            value="none"
-            {...register('gender')}
-          />
+          <Radio label="남자" value="male" {...register('gender')} />
+          <Radio label="여자" value="female" {...register('gender')} />
+          <Radio label="선택안함" value="none" {...register('gender')} />
         </div>
       </div>
 
       <div className={styles.field}>
         <label className={styles.label}>생년월일</label>
         <div className={styles.birth}>
-          <input
-            type="text"
-            placeholder="YYYY"
-            {...register('birthYear')}
-          />
+          <input type="text" placeholder="YYYY" {...register('birthYear')} />
           <span>/</span>
-          <input
-            type="text"
-            placeholder="MM"
-            {...register('birthMonth')}
-          />
+          <input type="text" placeholder="MM" {...register('birthMonth')} />
           <span>/</span>
-          <input
-            type="text"
-            placeholder="DD"
-            {...register('birthDay')}
-          />
+          <input type="text" placeholder="DD" {...register('birthDay')} />
         </div>
-        {errors.birthYear && (
-          <p className={styles.error}>{errors.birthYear.message}</p>
-        )}
-        {errors.birthMonth && (
-          <p className={styles.error}>{errors.birthMonth.message}</p>
-        )}
-        {errors.birthDay && (
-          <p className={styles.error}>{errors.birthDay.message}</p>
-        )}
+        {errors.birthYear && <p className={styles.error}>{errors.birthYear.message}</p>}
+        {errors.birthMonth && <p className={styles.error}>{errors.birthMonth.message}</p>}
+        {errors.birthDay && <p className={styles.error}>{errors.birthDay.message}</p>}
       </div>
 
       <Agreement />
 
-      <Button
-        type="submit"
-        className={styles.submit}
-        disabled={!isSubmitAvailable}>
+      <Button type="submit" className={styles.submit} disabled={!isSubmitAvailable}>
         가입하기
       </Button>
     </form>

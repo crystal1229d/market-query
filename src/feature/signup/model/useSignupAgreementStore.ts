@@ -31,9 +31,7 @@ const getIsAllChecked = (agreements: Record<AgreementKeys, boolean>) =>
   Object.values(agreements).every(Boolean)
 
 const getIsRequiredChecked = (agreements: Record<AgreementKeys, boolean>) =>
-  agreements.termsRequired &&
-  agreements.privacyRequired &&
-  agreements.ageRequired
+  agreements.termsRequired && agreements.privacyRequired && agreements.ageRequired
 
 export const useSignupAgreementStore = create<AgreementState>((set, get) => ({
   agreements: { ...initialAgreements },
